@@ -1,0 +1,28 @@
+name: Create nightly Release
+
+on:
+  workflow_dispatch:
+
+jobs:
+  release:
+    name: Create nightly Release
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+
+      - name: Task
+        run: |
+          echo "::notice::Backup and delete"
+          gh release download --clobber nightly
+          gh release delete nightly
+
+          echo "::notice::Create new release"
+          gh release create nightly \
+            --title "Nightly" \
+            --notes "This is an automatically updated build managed by the [**Build Debug APK**](https://github.com/nexpid/IconifyFork/blob/beta/.github/workflows/build_debug.yml) workflow\n\nThe source code zip is outdated!" \
+            --latest
+
+          echo "::notice::Upload files"
+          gh release upload --clobber nightly ./Iconify-fork-debug.apk
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
