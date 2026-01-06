@@ -62,7 +62,7 @@
                 app:sliderDefaultValue="60"
                 app:sliderStepSize="1"
                 app:sliderValue="60"
-                app:sliderValueFrom="20"
+                app:sliderValueFrom="0"
                 app:sliderValueTo="120"
                 app:titleText="@string/qs_tile_non_expanded_height"
                 app:valueFormat="dp" />
@@ -74,7 +74,7 @@
                 app:sliderDefaultValue="80"
                 app:sliderStepSize="1"
                 app:sliderValue="80"
-                app:sliderValueFrom="20"
+                app:sliderValueFrom="0"
                 app:sliderValueTo="120"
                 app:titleText="@string/qs_tile_expanded_height"
                 app:valueFormat="dp" />
